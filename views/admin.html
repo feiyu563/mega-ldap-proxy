@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LDAP ADMIN 用户管理</title>
+		<link rel="stylesheet" href="proxystatic/admin.css" />
+	</head>
+	<body>
+<div class="box">
+	<form method="post" onsubmit="return false" action="/ldapadmin" id="authform">
+		<h4>LDAP ADMIN 用户授权</h4>
+		<div class="acc">
+			<input type="text" name="user" id="user" placeholder="请输入LDAP用户名">
+			<input type="text" name="group" id="group"  placeholder="请输入LDAP用户组" value="ALL" style="display:none">
+			<input type="text" name="auth" id="auth"  placeholder="请输入权限路径" value="ALL">
+		</div>
+		<button type="button" id="btn_add" class="btn fff" onclick="checkForm();">授权</button>
+	</form>
+</div>
+
+		<div class="container">
+			<table>
+				<thead>
+					<tr>
+						<th style="display:none">ID</th>
+						<th>LDAP用户名</th>
+						<th>组名</th>
+						<th>权限</th>
+						<th>创建时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				{{range .}}
+					<tr>
+						<td style="display:none">{{.Id}}</td>
+						<td>{{.User}}</td>
+						<td>{{.Group}}</td>
+						<td>{{.Auth}}</td>
+						<td>{{.Created}}</td>
+						<td><a href="javascript:if(confirm('确实要删除吗?'))location='/ldapadmindel?id={{.Id}}'">删除</a></td>
+					</tr>
+				{{end}}
+				</tbody>
+			</table>
+		</div>
+	</body>
+<script>
+function checkForm(){
+	var form = document.getElementById('authform');
+	var pwd= document.getElementById('user');
+	if (pwd.value.length==0){
+		alert('用户名不能为空！');
+		return false;
+	};          
+    //进行下一步
+    form.submit();
+}
+</script>
+</html>

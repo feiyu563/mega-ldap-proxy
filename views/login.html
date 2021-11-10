@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="proxystatic/login.css">
+    <title>登录</title>
+</head>
+
+<body>
+    <div class="box">
+        <form method="post" action="/ldaplogin">
+            <h4>LDAP用户登录</h4>
+            <div class="acc">
+                <input type="text" name="username" placeholder="请输入登录名">
+                <input type="password" name="password" placeholder="请输入密码">
+            </div>
+            <input type="submit" value="登录" class="btn fff" onclick="return submitForm();">
+            <!--<div class="fn">
+                <label for="check"><input id="check" type="checkbox" name="rememberMe" value="1"><span><span></span></span>记住我</label>
+                <a href="javascript:;" class="ccc">忘记密码</a>
+            </div>-->
+            <div class="reg">
+                <p>{{.}}</p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
