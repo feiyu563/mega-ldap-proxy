@@ -1,0 +1,5 @@
+mega-ldap-proxy
+mega-ldap-proxy.exe
+.idea
+logs/*.log
+old

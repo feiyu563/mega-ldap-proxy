@@ -1,0 +1,9 @@
+.idea
+.git
+doc
+old
+logs/*.log
+.gitignore
+build.sh
+build.bat
+README.MD
